@@ -46,10 +46,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd, redis-phpredis/phpredis@5.3.7, igbinary, msgpack, lzf, zstd, lz4, memcached, gmp
@@ -61,14 +61,14 @@ jobs:
           REDIS_LIBS: liblz4-dev, liblzf-dev, libzstd-dev
 
       - name: Set Minimum PHP 8.1 Versions
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@14672906e672a08bd6eeb15720e9ed3ce869cdd4 # v2.9.0
         with:
           timeout_minutes: 5
           max_attempts: 5
           command: composer require symfony/css-selector:^6.0 --no-interaction --no-update
 
       - name: Set Minimum PHP 8.2 Versions
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@14672906e672a08bd6eeb15720e9ed3ce869cdd4 # v2.9.0
         with:
           timeout_minutes: 5
           max_attempts: 5
@@ -76,7 +76,7 @@ jobs:
         if: matrix.php >= 8.2
 
       - name: Install dependencies
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@14672906e672a08bd6eeb15720e9ed3ce869cdd4 # v2.9.0
         with:
           timeout_minutes: 5
           max_attempts: 5
@@ -93,7 +93,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: random_secret
 
       - name: Store artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3.2.1
         with:
           name: logs
           path: |
@@ -118,10 +118,10 @@ jobs:
           git config --global core.eol lf
 
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, gd, pdo_mysql, fileinfo, ftp, redis, memcached, gmp
@@ -129,14 +129,14 @@ jobs:
           coverage: none
 
       - name: Set Minimum PHP 8.1 Versions
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@14672906e672a08bd6eeb15720e9ed3ce869cdd4 # v2.9.0
         with:
           timeout_minutes: 5
           max_attempts: 5
           command: composer require symfony/css-selector:~6.0 ramsey/collection:^1.2 brick/math:^0.9.3 --no-interaction --no-update
 
       - name: Set Minimum PHP 8.2 Versions
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@14672906e672a08bd6eeb15720e9ed3ce869cdd4 # v2.9.0
         with:
           timeout_minutes: 5
           max_attempts: 5
@@ -144,7 +144,7 @@ jobs:
         if: matrix.php >= 8.2
 
       - name: Install dependencies
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@14672906e672a08bd6eeb15720e9ed3ce869cdd4 # v2.9.0
         with:
           timeout_minutes: 5
           max_attempts: 5
@@ -157,7 +157,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: random_secret
 
       - name: Store artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3.2.1
         with:
           name: logs
           path: |
