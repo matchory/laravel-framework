@@ -6,4 +6,4 @@ on:
 
 jobs:
   update:
-    uses: laravel/.github/.github/workflows/update-changelog.yml@main
+    uses: laravel/.github/.github/workflows/update-changelog.yml@eea7f59599a45c7e78e50b846e0ea19b9e92d818 # main
